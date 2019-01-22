@@ -5,7 +5,7 @@
         xmlns:tools="http://schemas.android.com/tools" >
     <data>
         <import type="android.graphics.Color" />
-        <variable name="item" type="jp.cookbiz.mkato.sandbox.media.MediaContent" />
+        <variable name="item" type="com.github.nitakan.sandbox.media.MediaContent" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
             android:orientation="vertical"

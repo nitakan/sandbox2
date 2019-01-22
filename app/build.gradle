@@ -9,7 +9,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "jp.cookbiz.mkato.sandbox"
+        applicationId "com.github.nitakan.sandbox"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
