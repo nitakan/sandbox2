@@ -12,6 +12,7 @@
             android:textColor="#ffffffff"
             android:textSize="@dimen/text_size_large"
             android:textStyle="bold"
-            android:drawablePadding="16dp"
+            android:singleLine="true"
+            android:ellipsize="end"
     />
 </LinearLayout>

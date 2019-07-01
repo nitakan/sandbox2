@@ -12,6 +12,8 @@
             android:paddingRight="16dp"
             android:textColor="#ffffffff"
             android:gravity="center_vertical|start"
+            android:singleLine="true"
+            android:ellipsize="marquee"
             android:background="@color/colorPrimaryDark"
             android:textSize="16sp" />
 </LinearLayout>

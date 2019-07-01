@@ -34,23 +34,23 @@ class MediaListActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolBar.toolBar)
 
 
-        binding.toolBar.toolbarTitle.text = "投稿"
+        //binding.toolBar.toolbarTitle.text = "投稿"
         binding.setLifecycleOwner(this)
 
-        ToolbarDropdownSpinnerAdapter(this, viewModel.requestDir(this)).also {adapter ->
+        ToolbarDropdownSpinnerAdapter(this, viewModel.requestDir2(this)).also {adapter ->
             binding.toolBar.toolbarSpinner.adapter = adapter
             binding.toolBar.toolbarSpinner.onItemSelectedListener = object: AdapterView.OnItemSelectedListener {
                 override fun onNothingSelected(parent: AdapterView<*>?) {  }
 
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     val item = adapter.getItem(position)
-                    viewModel.requestFileInDir(this@MediaListActivity, item)
+                    viewModel.requestFileInDir2(this@MediaListActivity, item)
                 }
             }
         }
 
         binding.mediaList.also {view ->
-            view.adapter = MediaListAdapter(this, viewModel, viewModel.requestFileInDir(this, ContentDirectory.All))
+            view.adapter = MediaListAdapter(this, viewModel, viewModel.getFileList())
             view.layoutManager = LinearLayoutManager(this, RecyclerView.VERTICAL, false)
         }
     }

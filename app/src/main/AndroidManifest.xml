@@ -24,6 +24,8 @@
         </activity>
         <activity android:name=".choosemedia.ChooseMediaActivity">
         </activity>
+        <activity android:name=".sandbox.ExecutorActivity">
+        </activity>
     </application>
 
 </manifest>

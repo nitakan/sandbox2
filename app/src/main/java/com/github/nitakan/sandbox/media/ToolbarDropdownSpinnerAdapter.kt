@@ -8,8 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import com.github.nitakan.sandbox.R
+import com.github.nitakan.sandbox.model.MediaStoreManager
 
-class ToolbarDropdownSpinnerAdapter(private val activity: AppCompatActivity, list: LiveData<List<ContentDirectory>>): BaseAdapter() {
+class ToolbarDropdownSpinnerAdapter(private val activity: AppCompatActivity, list: LiveData<List<MediaStoreManager.RequestType>>): BaseAdapter() {
 
     init {
         list.observe(activity, Observer {
@@ -21,11 +22,11 @@ class ToolbarDropdownSpinnerAdapter(private val activity: AppCompatActivity, lis
         })
     }
 
-    val items = mutableListOf<ContentDirectory>()
+    val items = mutableListOf<MediaStoreManager.RequestType>()
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         return if (convertView == null || convertView.tag.toString() == "NON_DROPDOWN") {
-            activity.layoutInflater.inflate(R.layout.toolbar_spinner_item, parent, false).also {
+            activity.layoutInflater.inflate(R.layout.layout_toolbar_spinner_item, parent, false).also {
                 it.tag = "NON_DROPDOWN"
             }
         } else {
@@ -44,7 +45,7 @@ class ToolbarDropdownSpinnerAdapter(private val activity: AppCompatActivity, lis
     override fun getDropDownView(position: Int, convertView: View?, parent: ViewGroup?): View {
 
         return if (convertView == null || convertView.tag.toString() == "DROPDOWN") {
-            activity.layoutInflater.inflate(R.layout.toolbar_spinner_item_dropdown, parent, false).apply {
+            activity.layoutInflater.inflate(R.layout.layout_toolbar_spinner_item_dropdown, parent, false).apply {
                 tag = "DROPDOWN"
             }
         } else { convertView }.also {
@@ -54,11 +55,11 @@ class ToolbarDropdownSpinnerAdapter(private val activity: AppCompatActivity, lis
 
     private fun getName(position: Int) = getItem(position).let { dir ->
         when (dir) {
-            is ContentDirectory.All -> "すべて"
-            is ContentDirectory.Pictures -> "写真"
-            is ContentDirectory.Videos -> "動画"
-            is ContentDirectory.ContentDirectoryImpl -> {
-                dir.getDirectoryName()
+            is MediaStoreManager.RequestType.All -> "すべて"
+            is MediaStoreManager.RequestType.Pictures -> "写真"
+            is MediaStoreManager.RequestType.Movies -> "動画"
+            is MediaStoreManager.RequestType.FolderContent -> {
+                dir.folder.name
             }
         }
     }
