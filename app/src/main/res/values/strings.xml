@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">sandbox</string>
+    <string name="title_activity_fblogin">FBLoginActivity</string>
+    <string name="facebook_app_id">309194779910124</string>
+
+    <string name="fb_login_protocol_scheme">fb309194779910124</string>
+
 </resources>

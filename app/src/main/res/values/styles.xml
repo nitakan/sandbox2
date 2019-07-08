@@ -21,7 +21,12 @@
         <item name="android:divider">@null</item>
         <item name="overlapAnchor">true</item>
     </style>
-
+    <style name="AppThemeWithoutActionbar.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppThemeWithoutActionbar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppThemeWithoutActionbar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light"/>
 
 
 </resources>
